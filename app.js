@@ -12,22 +12,26 @@ class App extends React.Component {
     }
     validateForm = (event) => {
         event.preventDefault();
-        const tmp = this.state.comments.concat(`name: ${this.state.name}, message : ${this.state.comment}`);
+        const commentArray = {
+            name : this.state.name,
+            message : this.state.comment,
+        }
+        const tmp = this.state.comments.concat(commentArray);
         this.setState({comments : tmp});
-        console.log(this.state.comments);
+        console.log(commentArray);
     }
     render() {
         return(
                 <form className="formulaire" onSubmit={this.validateForm} >
                     <h1 className="formulaire__title">Say Something</h1>
                     <div className="input__containers">
-                        <input className="input__name --border" type="text" placeholder="Your Name" value={this.state.name} onChange={this.updateName}/>
+                        <input className="input__name --input" type="text" placeholder="Your Name" value={this.state.name} onChange={this.updateName}/>
                     </div>
                     <div className="input__containers">
-                        <textarea className="input__comment --border" rows="5" cols="22" placeholder="Your Comment" value={this.state.comment} onChange={this.updateComment}/>
+                        <textarea className="input__comment --input" rows="5" cols="22" placeholder="Your Comment" value={this.state.comment} onChange={this.updateComment}/>
                     </div>
                     <div className="input__containers">
-                        <input className="input__btn --border" type="submit" value="Comment"/>
+                        <input className="input__btn --input" type="submit" value="Comment"/>
                     </div>
                 </form>
         )}
