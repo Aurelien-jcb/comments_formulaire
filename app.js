@@ -19,6 +19,9 @@ class App extends React.Component {
         const tmp = this.state.comments.concat(commentArray);
         this.setState({comments : tmp});
         console.log(commentArray);
+        this.setState({
+            name: "",
+            comment: "",});
     }
     render() {
         return(
